@@ -1,0 +1,8 @@
+[package]
+name = "sample"
+version = "0.0.0"
+authors = ["Bodo Kaiser <i@bodokaiser.io>"]
+
+[dependencies]
+nickel = "0.4"
+rustc-serialize = "0.3"
