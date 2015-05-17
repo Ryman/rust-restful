@@ -1,29 +1,14 @@
-extern crate rustc_serialize;
 #[macro_use] extern crate nickel;
-
-use std::collections::BTreeMap;
+extern crate serialize;
 
 use nickel::Nickel;
 use nickel::HttpRouter;
 
-use rustc_serialize::json::Json;
-use rustc_serialize::json::ToJson;
+use serialize::json::Json;
+use serialize::json::ToJson;
 
-struct Contact {
-    name: String,
-    email: String,
-}
-
-impl ToJson for Contact {
-    fn to_json(&self) -> Json {
-        let mut map = BTreeMap::new();
-
-        map.insert("name".to_string(), self.name.to_json());
-        map.insert("email".to_string(), self.email.to_json());
-
-        return Json::Object(map);
-    }
-}
+mod contact;
+use contact::Contact;
 
 fn main() {
     let mut server = Nickel::new();
@@ -32,20 +17,8 @@ fn main() {
         "Index"
     });
 
-    server.get("/contacts", middleware!{
-        "ContactsList"
-    });
-    server.post("/contacts", middleware!{
-        "ContactsCreate"
-    });
     server.get("/contacts/:id", middleware!{
-        "ContactsShow"
-    });
-    server.put("/contacts/:id", middleware!{
-        "ContactsUpdate"
-    });
-    server.delete("/contacts/:id", middleware!{
-        "ContactsDelete"
+        Contact::new("Bodo", "i@bodokaiser.io").to_json()
     });
 
     server.listen("127.0.0.1:3000");
