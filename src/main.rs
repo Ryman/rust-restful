@@ -1,5 +1,5 @@
 #[macro_use] extern crate nickel;
-extern crate serialize;
+extern crate rustc_serialize as serialize;
 
 use nickel::Nickel;
 use nickel::HttpRouter;

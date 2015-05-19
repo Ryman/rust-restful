@@ -5,3 +5,4 @@ authors = ["Bodo Kaiser <i@bodokaiser.io>"]
 
 [dependencies]
 nickel = "0.4"
+rustc-serialize = "*"

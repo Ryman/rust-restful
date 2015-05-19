@@ -1,9 +1,7 @@
-extern crate serialize;
-
 use std::collections::BTreeMap;
 
-use self::serialize::json::Json;
-use self::serialize::json::ToJson;
+use serialize::json::Json;
+use serialize::json::ToJson;
 
 pub struct Contact {
     name: String,
