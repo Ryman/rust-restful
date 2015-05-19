@@ -4,7 +4,6 @@ extern crate serialize;
 use nickel::Nickel;
 use nickel::HttpRouter;
 
-use serialize::json::Json;
 use serialize::json::ToJson;
 
 mod contact;

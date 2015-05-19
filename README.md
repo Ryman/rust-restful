@@ -1,6 +1,6 @@
-# Rust Webservice
+# Rust Restful
 
-Contains a webservice example with [rust](http://rust-lang.org).
+Contains a restful webservice written in [rust](http://rust-lang.org).
 
 ## License
 
