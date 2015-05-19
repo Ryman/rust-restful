@@ -10,10 +10,10 @@ pub struct Contact {
 
 impl Contact {
     pub fn new(name: &str, email: &str) -> Contact {
-        return Contact{
+        Contact{
             name: name.to_string(),
             email: email.to_string(),
-        };
+        }
     }
 }
 
@@ -24,6 +24,6 @@ impl ToJson for Contact {
         map.insert("name".to_string(), self.name.to_json());
         map.insert("email".to_string(), self.email.to_json());
 
-        return Json::Object(map);
+        Json::Object(map)
     }
 }
